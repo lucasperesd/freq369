@@ -5,7 +5,7 @@ $token = (& $gh auth token).Trim()
 $remoteUrl = "https://" + $token + "@github.com/lucasperesd/freq369.git"
 
 & $git add .
-& $git commit -m "feat: adicionar popup de boas-vindas com orientacao de zoom para mobile"
+& $git commit -m "chore: atualizar gitignore e limpar arquivos"
 & $git remote set-url origin $remoteUrl
 & $git push origin main
 & $git remote set-url origin "https://github.com/lucasperesd/freq369.git"
