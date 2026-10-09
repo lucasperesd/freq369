@@ -19,8 +19,6 @@ export default function FooterBar() {
           <span className="flex items-center gap-1">
             <ShieldCheck className="w-3.5 h-3.5 text-teal-400" /> Conteúdo 100% Autêntico
           </span>
-          <span>•</span>
-          <span>Sem Necessidade de Login</span>
         </div>
 
       </div>

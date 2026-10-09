@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, ZoomIn, CheckCircle2, Smartphone, Shield, ArrowRight } from 'lucide-react';
+import { Sparkles, ZoomIn, CheckCircle2, Smartphone, ArrowRight } from 'lucide-react';
 
 export default function WelcomeModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,10 +86,6 @@ export default function WelcomeModal() {
             <ArrowRight className="w-4 h-4 ml-1" />
           </button>
         </div>
-
-        <p className="text-[11px] text-center text-slate-400 mt-3 flex items-center justify-center gap-1">
-          <Shield className="w-3 h-3 text-teal-400" /> Acesso liberado sem necessidade de login.
-        </p>
 
       </div>
     </div>
