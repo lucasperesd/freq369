@@ -5,13 +5,9 @@ import {
   Circle, 
   ChevronLeft, 
   ChevronRight, 
-  Maximize2, 
-  Minimize2, 
   ExternalLink, 
-  BookOpen, 
-  Sparkles,
-  Info,
-  Layers
+  Info, 
+  Layers 
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -25,7 +21,6 @@ export default function PdfViewerArea({
   hasNext,
   onDownload
 }) {
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   // Trigger loading state briefly when chapter changes to ensure smooth visual transition
@@ -139,56 +134,24 @@ export default function PdfViewerArea({
             </button>
           </div>
 
-          {/* Quick External Open & Fullscreen Toggle */}
+          {/* Quick External Open */}
           <div className="flex items-center gap-2">
             <a
               href={chapter.path}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-slate-400 hover:text-teal-300 transition-colors px-2.5 py-1.5 rounded-lg hover:bg-slate-900"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-teal-300 transition-colors px-2.5 py-1.5 rounded-lg hover:bg-slate-900 border border-slate-800/80"
               title="Abrir PDF em nova aba"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Abrir em Nova Aba</span>
             </a>
-
-            <button
-              onClick={() => setIsFullscreen(!isFullscreen)}
-              className="flex items-center gap-1.5 text-slate-400 hover:text-white transition-colors px-2.5 py-1.5 rounded-lg hover:bg-slate-900"
-              title={isFullscreen ? "Sair da Tela Cheia" : "Modo Tela Cheia"}
-            >
-              {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
-              <span className="hidden md:inline">{isFullscreen ? 'Restaurar' : 'Tela Cheia'}</span>
-            </button>
           </div>
         </div>
       </div>
 
       {/* Main Interactive PDF Container */}
-      <div 
-        className={`relative w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-all duration-300 flex flex-col ${
-          isFullscreen 
-            ? 'fixed inset-0 z-50 rounded-none h-screen border-none' 
-            : 'h-[75vh] min-h-[550px] lg:h-[calc(100vh-270px)]'
-        }`}
-      >
-        {/* Top Control Overlay inside viewer in fullscreen */}
-        {isFullscreen && (
-          <div className="bg-slate-900 px-4 py-2.5 border-b border-slate-800 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <BookOpen className="w-4 h-4 text-teal-400" />
-              <span className="text-sm font-bold text-white truncate max-w-xs sm:max-w-md">
-                {chapter.title}
-              </span>
-            </div>
-            <button
-              onClick={() => setIsFullscreen(false)}
-              className="flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg bg-teal-500 text-slate-950 hover:bg-teal-400"
-            >
-              <Minimize2 className="w-3.5 h-3.5" /> Fechar Tela Cheia
-            </button>
-          </div>
-        )}
+      <div className="relative w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 shadow-2xl transition-all duration-300 flex flex-col h-[75vh] min-h-[550px] lg:h-[calc(100vh-270px)]">
 
         {/* Loading Spinner overlay */}
         {isLoading && (
