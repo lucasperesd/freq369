@@ -5,6 +5,7 @@ import HeaderNav from './components/HeaderNav';
 import Sidebar from './components/Sidebar';
 import PdfViewerArea from './components/PdfViewerArea';
 import FooterBar from './components/FooterBar';
+import WelcomeModal from './components/WelcomeModal';
 
 export default function App() {
   // Active chapter state (persisted or defaults to chapter 1)
@@ -98,6 +99,9 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-slate-100 flex flex-col font-sans">
+      {/* Pop-up de Boas-Vindas com Instrução de Zoom */}
+      <WelcomeModal />
+
       {/* 1. MENSAGEM DE BOAS-VINDAS (Banner Global Topo) */}
       <BannerTop />
 
